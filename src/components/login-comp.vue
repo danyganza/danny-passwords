@@ -98,6 +98,7 @@
   import useToast from '@/plugins/useToast.js'
   export default {
     setup() {
+      console.log("env-------url", process.env)
       const loader = ref(false)
       const myForm = ref('')
       const route = useRoute()
@@ -152,6 +153,7 @@
         console.log('ready login payload ==============', payload)
 
         const appBaseURL = process.env.VUE_APP_URL
+
 
         let config = {
           method: 'post',
