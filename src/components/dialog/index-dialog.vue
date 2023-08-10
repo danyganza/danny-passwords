@@ -106,6 +106,7 @@ export default {
   // },
 
 setup(props, { emit }) {
+  console.log("dialog",props.dialog)
   const handleDialog = ref(false);
   const router = useRouter();
   const visible = ref(false)

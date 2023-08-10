@@ -25,23 +25,18 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 export default {
   props: ["dialog", "card", "buttonLoader"],
-  watch: {
-    props: {
-      immediate: true,
-      handler(newValue) {
-        this.handleDialog = newValue.dialog;
-        this.loader = newValue.buttonLoader;
-      },
-    },
-  },
 
   setup(props, { emit }) {
     const handleDialog = ref(false);
     const loader = ref(false)
 
+  watch(props, (newValue) => {              
+   handleDialog.value = newValue.dialog;
+    loader.value = newValue.buttonLoader;
+    });
 
     function closeDialog() {
       emit("close-delete-popup", false);
@@ -62,3 +57,6 @@ export default {
 }
 
 </script>
+
+
+import { watch, ref } from "vue"; export default { setup() { const name = ref("Jay"); watch(name, (currentValue, oldValue) => { console.log(currentValue); console.log(oldValue); }); }, };
